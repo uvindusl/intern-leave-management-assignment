@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { leaveService } from '../services';
 import { LeaveRequest } from '../services';
-import './AdminPanel.css';
+import '../styles/AdminPanel.css';
 
 const AdminPanel = () => {
   const [leaves, setLeaves] = useState<LeaveRequest[]>([]);

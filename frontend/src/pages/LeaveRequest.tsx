@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { employeeService, leaveService } from '../services';
 import { Employee } from '../services';
-import './LeaveRequest.css';
+import '../styles/LeaveRequest.css';
 
 const LeaveRequest = () => {
   const [employees, setEmployees] = useState<Employee[]>([]);
