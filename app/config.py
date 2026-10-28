@@ -3,7 +3,11 @@ from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
-    database_url: str = "sqlite:///./leave_management.db"
+    database_hostname: str
+    database_port: str = "5432"
+    database_password: str
+    database_name: str
+    database_username: str
 
     class Config:
         env_file = ".env"
