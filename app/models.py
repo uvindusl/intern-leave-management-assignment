@@ -1,7 +1,7 @@
 from .database import Base
 from sqlalchemy import Column, Integer, String, Date, Text, Enum, ForeignKey, TIMESTAMP
 from sqlalchemy.orm import relationship
-from sqlalchemy.sql.expression import text
+from sqlalchemy.sql import func
 import enum
 
 
@@ -25,7 +25,7 @@ class Employee(Base):
     email = Column(String, nullable=False, unique=True, index=True)
     department = Column(String, nullable=False)
     created_at = Column(
-        TIMESTAMP(timezone=True), server_default=text("now()"), nullable=False
+        TIMESTAMP(timezone=True), server_default=func.now(), nullable=False
     )
 
     leaves = relationship("LeaveRequest", back_populates="employee")
@@ -45,12 +45,12 @@ class LeaveRequest(Base):
     status = Column(Enum(LeaveStatus), server_default="PENDING", nullable=False)
     rejection_reason = Column(Text, nullable=True)
     created_at = Column(
-        TIMESTAMP(timezone=True), server_default=text("now()"), nullable=False
+        TIMESTAMP(timezone=True), server_default=func.now(), nullable=False
     )
     updated_at = Column(
         TIMESTAMP(timezone=True),
-        server_default=text("now()"),
-        onupdate=text("now()"),
+        server_default=func.now(),
+        onupdate=func.now(),
         nullable=False,
     )
 
