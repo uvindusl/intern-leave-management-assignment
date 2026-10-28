@@ -7,15 +7,18 @@ import './App.css';
 
 function App() {
   return (
-    <>
+    <div className="app-shell">
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Navigate to="/employees" replace />} />
-        <Route path="/employees" element={<EmployeeManagement />} />
-        <Route path="/leave-request" element={<LeaveRequest />} />
-        <Route path="/admin/leaves" element={<AdminPanel />} />
-      </Routes>
-    </>
+      <main className="app-content">
+        <Routes>
+          <Route path="/" element={<Navigate to="/employees" replace />} />
+          <Route path="/employees" element={<EmployeeManagement />} />
+          <Route path="/leave-request" element={<LeaveRequest />} />
+          <Route path="/admin/leaves" element={<AdminPanel />} />
+          <Route path="*" element={<Navigate to="/employees" replace />} />
+        </Routes>
+      </main>
+    </div>
   );
 }
 

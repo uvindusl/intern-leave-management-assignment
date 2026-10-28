@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { employeeService } from '../services';
-import { Employee } from '../services';
+import type { Employee } from '../services';
 import '../styles/EmployeeManagement.css';
 
 const EmployeeManagement = () => {

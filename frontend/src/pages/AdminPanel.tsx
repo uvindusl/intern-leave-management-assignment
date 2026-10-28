@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { leaveService } from '../services';
-import { LeaveRequest } from '../services';
+import type { LeaveRequest } from '../services';
 import '../styles/AdminPanel.css';
 
 const AdminPanel = () => {
